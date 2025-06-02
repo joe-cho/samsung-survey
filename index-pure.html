@@ -329,6 +329,185 @@
                         </div>
                     </div>
                 </div>
+                <div x-show="currentStep === 6">
+                    <h3 class="text-lg font-medium mb-4">설문</h3>
+                    <div class="space-y-6">
+                        <!-- Question 1: Gender -->
+                        <div>
+                            <p class="mb-3 font-medium">귀하의 성별은 무엇인가요? [1개 선택]</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="gender" value="male" class="mr-2">
+                                    <span>남성</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="gender" value="female" class="mr-2">
+                                    <span>여성</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 2: Birth Year -->
+                        <div>
+                            <p class="mb-3 font-medium">귀하의 연령은 어떻게 되십니까? 출생연도를 입력하여 주십시오. [출생연도]</p>
+                            <div class="flex items-center">
+                                <span class="mr-2">출생연도:</span>
+                                <input 
+                                    type="number" 
+                                    name="birth_year" 
+                                    class="w-24 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    placeholder="YYYY"
+                                    min="1900"
+                                    max="2024"
+                                >
+                                <span class="ml-2">년</span>
+                            </div>
+                        </div>
+
+                        <!-- Question 3: Region -->
+                        <div>
+                            <p class="mb-3 font-medium">귀하의 거주지역은 어디입니까? 아래 보기에서 선택하여 주십시오.</p>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="seoul" class="mr-2">
+                                    <span>서울</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="busan" class="mr-2">
+                                    <span>부산</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="daegu" class="mr-2">
+                                    <span>대구</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="incheon" class="mr-2">
+                                    <span>인천</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="gwangju" class="mr-2">
+                                    <span>광주</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="daejeon" class="mr-2">
+                                    <span>대전</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="ulsan" class="mr-2">
+                                    <span>울산</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="gyeonggi" class="mr-2">
+                                    <span>경기</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="gangwon" class="mr-2">
+                                    <span>강원</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="chungbuk" class="mr-2">
+                                    <span>충북</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="chungnam" class="mr-2">
+                                    <span>충남</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="jeonbuk" class="mr-2">
+                                    <span>전북</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="jeonnam" class="mr-2">
+                                    <span>전남</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="gyeongbuk" class="mr-2">
+                                    <span>경북</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="gyeongnam" class="mr-2">
+                                    <span>경남</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="jeju" class="mr-2">
+                                    <span>제주</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="region" value="sejong" class="mr-2">
+                                    <span>세종</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 4: Occupation -->
+                        <div>
+                            <p class="mb-3 font-medium">귀하의 직업은 무엇입니까? 가장 주된 직업 1개를 선택해 주십시오.</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="occupation" value="student" class="mr-2">
+                                    <span>학생</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="occupation" value="job_seeker" class="mr-2">
+                                    <span>취업준비생</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="occupation" value="housewife" class="mr-2">
+                                    <span>전업주부</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="occupation" value="employee" class="mr-2">
+                                    <span>직장인</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="occupation" value="public_servant" class="mr-2">
+                                    <span>공무원(공기업 포함)</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="occupation" value="self_employed" class="mr-2">
+                                    <span>자영업자</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="occupation" value="freelancer" class="mr-2">
+                                    <span>프리랜서</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="occupation" value="unemployed" class="mr-2">
+                                    <span>무직</span>
+                                </label>
+                                <div class="flex items-center">
+                                    <input type="radio" name="occupation" value="other" class="mr-2">
+                                    <span>기타(</span>
+                                    <input type="text" class="border-b border-gray-300 mx-2 px-2 focus:outline-none focus:border-blue-500">
+                                    <span>)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 5: Education -->
+                        <div>
+                            <p class="mb-3 font-medium">귀하의 최종학력은 어떻게 되십니까?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="education" value="high_school" class="mr-2">
+                                    <span>고졸 이하</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="education" value="bachelor" class="mr-2">
+                                    <span>전문대졸/대졸</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="education" value="master" class="mr-2">
+                                    <span>석사 졸업</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="education" value="phd" class="mr-2">
+                                    <span>박사 졸업</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="flex justify-between mt-4">
