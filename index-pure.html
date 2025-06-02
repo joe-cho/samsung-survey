@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div 
+        x-data="{
+            currentStep: 1,
+            steps: [
+                { instruction: '안녕하세요, 본 설문조사는 KAIST Computational Sociology Lab에서 효과적인 기업 사내 커뮤니케이션 증진을 위해 기획되었습니다. 귀하의 의견은 사내 커뮤니케이션의 질을 향상시키기 위한 소중한 자료로 쓰여질 것입니다. 설문조사에 소요되는 시간은 약 10분 내외로 예상되며, 참가하신 모든 분들께 스타벅스 무료 음료권 1장을 제공할 예정입니다. 설문조사와 관련하여 질문이 있으시면 본 이메일(lanukim@kaist.ac.kr)로 연락 부탁드립니다. 감사합니다.' },
+                { instruction: '귀하는 현재 모 기업의 직원입니다. 귀하의 기업에서 불미의 사고가 일어났다고 가정합니다.  회사측에서 이 사건에 대해 직원들과 소통하기 위하여 제공되는 두 편의 그림을 주의깊게 읽고, 제공되는 질문에 답해주세요.' },
+                { instruction: '다음은 그림  A입니다.' },
+                { instruction: '다음은 그림  B입니다.' },
+                { instruction: '다음 설문에 답해주세요.' },
+                { instruction: '이상으로 모든 그림 비교 시나리오는 끝났습니다. 귀하께서 시나리오를 비교하면서 생각하셨던 점에 대해 간략히 답변해주십시오.' },
+                { instruction: '마지막으로 다음의 질문에 답변해주십시오.' },
+                { instruction: '감사합니다.' }
+            ],
+            images: {
+                competition: [
+                    ['/competition/gamma_24_id=1-A.png', '/competition/gamma_24_id=1-B.png', '/competition/gamma_24_id=1-C.png'],
+                    ['/competition/gamma_24_id=2-A.png', '/competition/gamma_24_id=2-B.png', '/competition/gamma_24_id=2-C.png'],
+                    ['/competition/gamma_24_id=3-A.png', '/competition/gamma_24_id=3-B.png', '/competition/gamma_24_id=3-C.png'],
+                    ['/competition/gamma_24_id=4-A.png', '/competition/gamma_24_id=4-B.png']
+                ],
+                economic_downturn: [
+                    ['/economic_downturn/beta_24_id=1-A.png', '/economic_downturn/beta_24_id=1-B.png', '/economic_downturn/beta_24_id=1-C.png'],
+                    ['/economic_downturn/beta_24_id=2-A.png', '/economic_downturn/beta_24_id=2-B.png', '/economic_downturn/beta_24_id=2-C.png'],
+                    ['/economic_downturn/beta_24_id=3-A.png', '/economic_downturn/beta_24_id=3-B.png', '/economic_downturn/beta_24_id=3-C.png'],
+                    ['/economic_downturn/beta_24_id=4-A.png', '/economic_downturn/beta_24_id=4-B.png']
+                ],
+                incidents: [
+                    ['/incidents/alpha_24_id=1-A.png', '/incidents/alpha_24_id=1-B.png', '/incidents/alpha_24_id=1-C.png'],
+                    ['/incidents/alpha_24_id=2-A.png', '/incidents/alpha_24_id=2-B.png', '/incidents/alpha_24_id=2-C.png'],
+                    ['/incidents/alpha_24_id=3-A.png', '/incidents/alpha_24_id=3-B.png'],
+                    ['/incidents/alpha_24_id=4-A.png', '/incidents/alpha_24_id=4-B.png']
+                ],
+                natural_disaster: [
+                    ['/natural_disaster/delta_24_id=1-A.png', '/natural_disaster/delta_24_id=1-B.png', '/natural_disaster/delta_24_id=1-C.png'],
+                    ['/natural_disaster/delta_24_id=2-A.png', '/natural_disaster/delta_24_id=2-B.png', '/natural_disaster/delta_24_id=2-C.png'],
+                    ['/natural_disaster/delta_24_id=3-A.png', '/natural_disaster/delta_24_id=3-B.png', '/natural_disaster/delta_24_id=3-C.png'],
+                    ['/natural_disaster/delta_24_id=4-A.png', '/natural_disaster/delta_24_id=4-B.png']
+                ],
+                rule_violations: [
+                    ['/rule_violations/epsilon_24_id=1-A.png', '/rule_violations/epsilon_24_id=1-B.png', '/rule_violations/epsilon_24_id=1-C.png'],
+                    ['/rule_violations/epsilon_24_id=2-A.png', '/rule_violations/epsilon_24_id=2-B.png', '/rule_violations/epsilon_24_id=2-C.png'],
+                    ['/rule_violations/epsilon_24_id=3-A.png', '/rule_violations/epsilon_24_id=3-B.png', '/rule_violations/epsilon_24_id=3-C.png'],
+                    ['/rule_violations/epsilon_24_id=4-A.png', '/rule_violations/epsilon_24_id=4-B.png']
+                ]
+            }
+        }"
+        class="md:p-8 p-0 max-w-5xl mx-auto flex items-center justify-center h-screen"
+    >
+        <div class="bg-white rounded-lg shadow-lg p-6 w-full h-full flex flex-col justify-between">
+            <div class="mb-4">
+                <h2 class="text-xl font-semibold mb-2">Step <span x-text="currentStep"></span> of <span x-text="steps.length"></span></h2>
+                <p class="text-gray-700" x-text="steps[currentStep - 1].instruction"></p>
+            </div>
+            
+            <div class="flex justify-between">
+                <button
+                    x-on:click="currentStep > 1 && currentStep--"
+                    x-bind:disabled="currentStep === 1"
+                    x-bind:class="currentStep === 1 ? 'opacity-50 cursor-not-allowed' : ''"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2"
+                >
+                    Previous
+                </button>
+                
+                <button
+                    x-on:click="currentStep < steps.length && currentStep++"
+                    x-bind:disabled="currentStep === steps.length - 1"
+                    x-bind:class="currentStep === steps.length - 1 ? 'opacity-50 cursor-not-allowed' : ''"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2"
+                >
+                    Next
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
