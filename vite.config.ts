@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 export default defineConfig({
+  root: '.',
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
@@ -11,5 +12,8 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    rollupOptions: {
+      input: 'index-vite.html'
+    }
   },
 }) 
