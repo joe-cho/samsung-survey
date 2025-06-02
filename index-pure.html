@@ -11,6 +11,7 @@
     <div 
         x-data="{
             currentStep: 1,
+            selectedImages: {},
             steps: [
                 { instruction: '안녕하세요, 본 설문조사는 KAIST Computational Sociology Lab에서 효과적인 기업 사내 커뮤니케이션 증진을 위해 기획되었습니다. 귀하의 의견은 사내 커뮤니케이션의 질을 향상시키기 위한 소중한 자료로 쓰여질 것입니다. 설문조사에 소요되는 시간은 약 10분 내외로 예상되며, 참가하신 모든 분들께 스타벅스 무료 음료권 1장을 제공할 예정입니다. 설문조사와 관련하여 질문이 있으시면 본 이메일(lanukim@kaist.ac.kr)로 연락 부탁드립니다. 감사합니다.' },
                 { instruction: '귀하는 현재 모 기업의 직원입니다. 귀하의 기업에서 불미의 사고가 일어났다고 가정합니다.  회사측에서 이 사건에 대해 직원들과 소통하기 위하여 제공되는 두 편의 그림을 주의깊게 읽고, 제공되는 질문에 답해주세요.' },
@@ -30,7 +31,7 @@
                         ['/competition/gamma_24_id=3-A.png', '/competition/gamma_24_id=3-B.png', '/competition/gamma_24_id=3-C.png'],
                         ['/competition/gamma_24_id=4-A.png', '/competition/gamma_24_id=4-B.png']
                     ]
-                } ,
+                },
                 economic_downturn: {
                     title: '산업 불황',
                     data: [
@@ -39,7 +40,7 @@
                         ['/economic_downturn/beta_24_id=3-A.png', '/economic_downturn/beta_24_id=3-B.png', '/economic_downturn/beta_24_id=3-C.png'],
                         ['/economic_downturn/beta_24_id=4-A.png', '/economic_downturn/beta_24_id=4-B.png']
                     ]
-                } ,
+                },
                 incidents: {
                     title: '사고 발생',
                     data: [
@@ -67,6 +68,34 @@
                         ['/rule_violations/epsilon_24_id=4-A.png', '/rule_violations/epsilon_24_id=4-B.png']
                     ]
                 }
+            },
+            getRandomImage(imageSet, key, index) {
+                if (!this.selectedImages[key]) {
+                    this.selectedImages[key] = {};
+                }
+                if (!this.selectedImages[key][index]) {
+                    const availableImages = imageSet.filter(img => 
+                        !Object.values(this.selectedImages[key] || {}).includes(img)
+                    );
+                    if (availableImages.length === 0) return imageSet[0];
+                    this.selectedImages[key][index] = availableImages[Math.floor(Math.random() * availableImages.length)];
+                }
+                return this.selectedImages[key][index];
+            },
+            getRandomImageIndex(imageSet, key, index) {
+                if (!this.selectedImages[key]) {
+                    this.selectedImages[key] = {};
+                }
+                if (!this.selectedImages[key][index]) {
+                    const availableImages = imageSet.filter(img => 
+                        !Object.values(this.selectedImages[key] || {}).includes(img)
+                    );
+                    if (availableImages.length === 0) return 0;
+                    const randomIndex = Math.floor(Math.random() * availableImages.length);
+                    this.selectedImages[key][index] = availableImages[randomIndex];
+                    return randomIndex;
+                }
+                return imageSet.indexOf(this.selectedImages[key][index]);
             }
         }"
         class="md:p-8 p-0 max-w-5xl mx-auto flex items-center justify-center h-screen"
@@ -77,18 +106,23 @@
                 <p class="text-gray-700" x-text="steps[currentStep - 1].instruction"></p>
             </div>
 
-            <div x-show="currentStep === 3">
+            <div x-show="currentStep === 3 || currentStep === 4">
                 <template x-for="(condition, key) in images" :key="key">
                     <div x-show="key === 'competition'">
                         <h3 class="text-lg font-medium mb-2" x-text="condition.title"></h3>
                         <div class="grid grid-cols-2 gap-4 mb-4">
                             <template x-for="(imageSet, index) in condition.data" :key="index">
-                                <div x-show="key === 'competition'" class="mb-4">
-                                    <img 
-                                        :src="'/public' + imageSet[Math.floor(Math.random() * imageSet.length)]"
-                                        class="w-full h-auto rounded shadow-md"
-                                        :alt="`${key} image ${index + 1}`"
-                                    />
+                                <div class="mb-4">
+                                    <div class="relative">
+                                        <div class="absolute top-2 left-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
+                                            Image <span x-text="index + 1"></span> (Set <span x-text="getRandomImageIndex(imageSet, key, index) + 1"></span>)
+                                        </div>
+                                        <img 
+                                            :src="'/public' + getRandomImage(imageSet, key, index)"
+                                            class="w-full h-auto rounded shadow-md"
+                                            :alt="`${key} image ${index + 1}`"
+                                        />
+                                    </div>
                                 </div>
                             </template>
                         </div>
