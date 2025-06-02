@@ -101,60 +101,62 @@
         class="md:p-8 p-0 mx-auto flex items-center justify-center h-screen"
     >
         <div class="bg-white rounded-lg shadow-lg p-6 w-full h-full flex flex-col justify-between">
-            <div class="mb-4">
-                <h2 class="text-xl font-semibold mb-2">Step <span x-text="currentStep"></span> of <span x-text="steps.length"></span></h2>
-                <p class="text-gray-700" x-text="steps[currentStep - 1].instruction"></p>
-            </div>
+            <div class="flex-1 overflow-y-auto">
+                <div class="mb-4">
+                    <h2 class="text-xl font-semibold mb-2">Step <span x-text="currentStep"></span> of <span x-text="steps.length"></span></h2>
+                    <p class="text-gray-700" x-text="steps[currentStep - 1].instruction"></p>
+                </div>
 
-            <div x-show="currentStep === 3">
-                <template x-for="(condition, key) in images" :key="key">
-                    <div x-show="key === 'competition'">
-                        <h3 class="text-lg font-medium mb-2" x-text="condition.title"></h3>
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <template x-for="(imageSet, index) in condition.data" :key="index">
-                                <div class="mb-4">
-                                    <div class="relative">
-                                        <div class="absolute top-2 left-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
-                                            Image <span x-text="index + 1"></span> (Set <span x-text="getRandomImageIndex(imageSet, key + '_step3', index) + 1"></span>)
+                <div x-show="currentStep === 3">
+                    <template x-for="(condition, key) in images" :key="key">
+                        <div x-show="key === 'competition'">
+                            <h3 class="text-lg font-medium mb-2" x-text="condition.title"></h3>
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <template x-for="(imageSet, index) in condition.data" :key="index">
+                                    <div class="mb-4">
+                                        <div class="relative">
+                                            <div class="absolute top-2 left-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
+                                                Image <span x-text="index + 1"></span> (Set <span x-text="getRandomImageIndex(imageSet, key + '_step3', index) + 1"></span>)
+                                            </div>
+                                            <img 
+                                                :src="'/public' + getRandomImage(imageSet, key + '_step3', index)"
+                                                class="w-full h-auto rounded shadow-md"
+                                                :alt="`${key} image ${index + 1}`"
+                                            />
                                         </div>
-                                        <img 
-                                            :src="'/public' + getRandomImage(imageSet, key + '_step3', index)"
-                                            class="w-full h-auto rounded shadow-md"
-                                            :alt="`${key} image ${index + 1}`"
-                                        />
                                     </div>
-                                </div>
-                            </template>
+                                </template>
+                            </div>
                         </div>
-                    </div>
-                </template>
-            </div>
+                    </template>
+                </div>
 
-            <div x-show="currentStep === 4">
-                <template x-for="(condition, key) in images" :key="key">
-                    <div x-show="key === 'competition'">
-                        <h3 class="text-lg font-medium mb-2" x-text="condition.title"></h3>
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <template x-for="(imageSet, index) in condition.data" :key="index">
-                                <div class="mb-4">
-                                    <div class="relative">
-                                        <div class="absolute top-2 left-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
-                                            Image <span x-text="index + 1"></span> (Set <span x-text="getRandomImageIndex(imageSet, key + '_step4', index) + 1"></span>)
+                <div x-show="currentStep === 4">
+                    <template x-for="(condition, key) in images" :key="key">
+                        <div x-show="key === 'competition'">
+                            <h3 class="text-lg font-medium mb-2" x-text="condition.title"></h3>
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <template x-for="(imageSet, index) in condition.data" :key="index">
+                                    <div class="mb-4">
+                                        <div class="relative">
+                                            <div class="absolute top-2 left-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
+                                                Image <span x-text="index + 1"></span> (Set <span x-text="getRandomImageIndex(imageSet, key + '_step4', index) + 1"></span>)
+                                            </div>
+                                            <img 
+                                                :src="'/public' + getRandomImage(imageSet, key + '_step4', index)"
+                                                class="w-full h-auto rounded shadow-md"
+                                                :alt="`${key} image ${index + 1}`"
+                                            />
                                         </div>
-                                        <img 
-                                            :src="'/public' + getRandomImage(imageSet, key + '_step4', index)"
-                                            class="w-full h-auto rounded shadow-md"
-                                            :alt="`${key} image ${index + 1}`"
-                                        />
                                     </div>
-                                </div>
-                            </template>
+                                </template>
+                            </div>
                         </div>
-                    </div>
-                </template>
+                    </template>
+                </div>
             </div>
             
-            <div class="flex justify-between">
+            <div class="flex justify-between mt-4">
                 <button
                     x-on:click="currentStep > 1 && currentStep--"
                     x-bind:disabled="currentStep === 1"
