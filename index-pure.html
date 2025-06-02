@@ -19,6 +19,7 @@
                 { instruction: '안녕하세요, 본 설문조사는 KAIST Computational Sociology Lab에서 효과적인 기업 사내 커뮤니케이션 증진을 위해 기획되었습니다. 귀하의 의견은 사내 커뮤니케이션의 질을 향상시키기 위한 소중한 자료로 쓰여질 것입니다. 설문조사에 소요되는 시간은 약 10분 내외로 예상되며, 참가하신 모든 분들께 스타벅스 무료 음료권 1장을 제공할 예정입니다. 설문조사와 관련하여 질문이 있으시면 본 이메일(lanukim@kaist.ac.kr)로 연락 부탁드립니다. 감사합니다.' },
                 { instruction: '귀하는 현재 모 기업의 직원입니다. 귀하의 기업에서 불미의 사고가 일어났다고 가정합니다.  회사측에서 이 사건에 대해 직원들과 소통하기 위하여 제공되는 두 편의 그림을 주의깊게 읽고, 제공되는 질문에 답해주세요.' },
                 { instruction: '다음은 그림  A입니다.' },
+                { instruction: '그림 A와 B에 대한 설문입니다.' },
                 { instruction: '이상으로 모든 그림 비교 시나리오는 끝났습니다. 귀하께서 시나리오를 비교하면서 생각하셨던 점에 대해 간략히 답변해주십시오.' },
                 { instruction: '마지막으로 다음의 질문에 답변해주십시오.' },
                 { instruction: '감사합니다.' }
@@ -158,18 +159,173 @@
 
                 <div x-show="currentStep === 4">
                     <h3 class="text-lg font-medium mb-4">설문</h3>
-                    <div class="space-y-4">
+                    <div class="space-y-6">
+                        <!-- Question 1 -->
                         <div>
-                            <p class="mb-2">1. 위 그림에서 회사가 전달하고자 하는 메시지는 무엇인가요?</p>
-                            <textarea class="w-full p-2 border rounded" rows="3"></textarea>
+                            <p class="mb-3 font-medium">귀하가 선호하는 시나리오는 무엇인가요?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="preferred_scenario" value="A" class="mr-2">
+                                    <span>그림 A</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="preferred_scenario" value="B" class="mr-2">
+                                    <span>그림 B</span>
+                                </label>
+                            </div>
                         </div>
+
+                        <!-- Question 2 -->
                         <div>
-                            <p class="mb-2">2. 이 그림이 직원들에게 미치는 영향은 무엇이라고 생각하시나요?</p>
-                            <textarea class="w-full p-2 border rounded" rows="3"></textarea>
+                            <p class="mb-3 font-medium">선택하신 메시지는 조직에 대한 신뢰를 높일 수 있다고 생각하십니까?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="trust" value="1" class="mr-2">
+                                    <span>전혀 그렇지 않다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="trust" value="2" class="mr-2">
+                                    <span>그렇지 않은 편이다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="trust" value="3" class="mr-2">
+                                    <span>보통이다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="trust" value="4" class="mr-2">
+                                    <span>동의하는 편이다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="trust" value="5" class="mr-2">
+                                    <span>매우 그렇다</span>
+                                </label>
+                            </div>
                         </div>
+
+                        <!-- Question 3 -->
                         <div>
-                            <p class="mb-2">3. 이 그림의 효과적인 점과 개선이 필요한 점은 무엇인가요?</p>
-                            <textarea class="w-full p-2 border rounded" rows="3"></textarea>
+                            <p class="mb-3 font-medium">선택하신 메시지를 받는다면, 귀하는 일에 동기부여가 된다고 느끼십니까?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="motivation" value="1" class="mr-2">
+                                    <span>전혀 그렇지 않다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="motivation" value="2" class="mr-2">
+                                    <span>그렇지 않은 편이다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="motivation" value="3" class="mr-2">
+                                    <span>보통이다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="motivation" value="4" class="mr-2">
+                                    <span>동의하는 편이다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="motivation" value="5" class="mr-2">
+                                    <span>매우 그렇다</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div>
+                            <p class="mb-3 font-medium">선택하신 메시지를 받는다면, 조직의 방침에 적극적으로 따를 의향이 있으십니까?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="compliance" value="1" class="mr-2">
+                                    <span>전혀 그렇지 않다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="compliance" value="2" class="mr-2">
+                                    <span>그렇지 않은 편이다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="compliance" value="3" class="mr-2">
+                                    <span>보통이다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="compliance" value="4" class="mr-2">
+                                    <span>동의하는 편이다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="compliance" value="5" class="mr-2">
+                                    <span>매우 그렇다</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 Survey view -->
+                <div x-show="currentStep === 5">
+                    <h3 class="text-lg font-medium mb-4">설문</h3>
+                    <div class="space-y-6">
+                        <!-- Question 1 -->
+                        <div>
+                            <p class="mb-3 font-medium">아래 네 가지 요소 중, 본인이 조직 커뮤니케이션에서 가장 중요하게 생각하는 요소는 무엇입니까?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="important_element" value="transparency" class="mr-2">
+                                    <span>문제 투명성</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="important_element" value="response" class="mr-2">
+                                    <span>문제에 대한 조직 대응 방안</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="important_element" value="morale" class="mr-2">
+                                    <span>조직원 사기 증가 방안</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="important_element" value="tone" class="mr-2">
+                                    <span>메시지 톤</span>
+                                </label>
+                                <div class="flex items-center">
+                                    <input type="radio" name="important_element" value="other" class="mr-2">
+                                    <span>기타 (직접 입력: </span>
+                                    <input type="text" class="border-b border-gray-300 mx-2 px-2 focus:outline-none focus:border-blue-500">
+                                    <span>)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div>
+                            <p class="mb-3 font-medium">제시된 시나리오들은 실제 상황과 얼마나 유사하다고 느끼셨습니까?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="similarity" value="1" class="mr-2">
+                                    <span>전혀 유사하지 않다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="similarity" value="2" class="mr-2">
+                                    <span>유사하지 않다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="similarity" value="3" class="mr-2">
+                                    <span>보통이다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="similarity" value="4" class="mr-2">
+                                    <span>유사하다</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="similarity" value="5" class="mr-2">
+                                    <span>매우 유사하다</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div>
+                            <p class="mb-3 font-medium">응답자님이 시나리오를 선택할 때 가장 중요하게 고려한 점은 무엇이었나요?</p>
+                            <textarea 
+                                class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                                rows="4"
+                                placeholder="답변을 입력해주세요"
+                            ></textarea>
                         </div>
                     </div>
                 </div>
@@ -179,7 +335,9 @@
                 <div>
                     <button
                         x-on:click="
-                            if (currentStep === 4) {
+                            if (currentStep === 5) {
+                                currentStep = 4;
+                            } else if (currentStep === 4) {
                                 currentStep = 3;
                                 currentSet = 'B';
                             } else if (currentStep === 3) {
@@ -202,17 +360,19 @@
                 
                 <button
                     x-on:click="
-                        if (currentStep === 3) {
-                            if (currentSet === 'B') {
-                                currentStep = 4;
-                            } else {
-                                currentSet = 'B';
-                            }
+                        if (currentStep === 5) {
+                            currentStep = 6;
                         } else if (currentStep === 4) {
                             if (nextImageKey()) {
                                 currentStep = 5;
                             } else {
                                 currentStep = 3;
+                            }
+                        } else if (currentStep === 3) {
+                            if (currentSet === 'B') {
+                                currentStep = 4;
+                            } else {
+                                currentSet = 'B';
                             }
                         } else {
                             currentStep < steps.length && currentStep++;
