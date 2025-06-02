@@ -4,15 +4,15 @@ const Survey = () => {
   return (
     <div 
       x-data={`${JSON.stringify(surveyData)}`}
-      className="p-8 max-w-2xl mx-auto flex items-center justify-center h-screen"
+      className="md:p-8 p-0 max-w-5xl mx-auto flex items-center justify-center h-screen"
     >
-      <div className="bg-white rounded-lg shadow-lg p-6 w-full h-full">
+      <div className="bg-white rounded-lg shadow-lg p-6 w-full h-full flex flex-col justify-between">
         <div className="mb-4">
           <h2 className="text-xl font-semibold mb-2">Step <span x-text="currentStep"></span> of <span x-text="steps.length"></span></h2>
           <p className="text-gray-700" x-text="steps[currentStep - 1].instruction"></p>
         </div>
         
-        <div className="flex justify-between mt-6">
+        <div className="flex justify-between">
           <button
             x-on:click="currentStep > 1 && currentStep--"
             x-bind:disabled="currentStep === 1"

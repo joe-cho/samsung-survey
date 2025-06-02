@@ -9,13 +9,13 @@ const Button = ({ children, ...props }: { children: React.ReactNode } & React.Bu
   </button>
 );
 
-const Span = ({ children, ...props }: { children?: React.ReactNode } & React.HTMLAttributes<HTMLSpanElement>) => (
-  <span
-    {...props}
-  >
-    {children}
-  </span>
-);
+// const Span = ({ children, ...props }: { children?: React.ReactNode } & React.HTMLAttributes<HTMLSpanElement>) => (
+//   <span
+//     {...props}
+//   >
+//     {children}
+//   </span>
+// );
 
 export const Counter = () => {
   return (
