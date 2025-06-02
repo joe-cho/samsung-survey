@@ -22,36 +22,51 @@
                 { instruction: '감사합니다.' }
             ],
             images: {
-                competition: [
-                    ['/competition/gamma_24_id=1-A.png', '/competition/gamma_24_id=1-B.png', '/competition/gamma_24_id=1-C.png'],
-                    ['/competition/gamma_24_id=2-A.png', '/competition/gamma_24_id=2-B.png', '/competition/gamma_24_id=2-C.png'],
-                    ['/competition/gamma_24_id=3-A.png', '/competition/gamma_24_id=3-B.png', '/competition/gamma_24_id=3-C.png'],
-                    ['/competition/gamma_24_id=4-A.png', '/competition/gamma_24_id=4-B.png']
-                ],
-                economic_downturn: [
-                    ['/economic_downturn/beta_24_id=1-A.png', '/economic_downturn/beta_24_id=1-B.png', '/economic_downturn/beta_24_id=1-C.png'],
-                    ['/economic_downturn/beta_24_id=2-A.png', '/economic_downturn/beta_24_id=2-B.png', '/economic_downturn/beta_24_id=2-C.png'],
-                    ['/economic_downturn/beta_24_id=3-A.png', '/economic_downturn/beta_24_id=3-B.png', '/economic_downturn/beta_24_id=3-C.png'],
-                    ['/economic_downturn/beta_24_id=4-A.png', '/economic_downturn/beta_24_id=4-B.png']
-                ],
-                incidents: [
-                    ['/incidents/alpha_24_id=1-A.png', '/incidents/alpha_24_id=1-B.png', '/incidents/alpha_24_id=1-C.png'],
-                    ['/incidents/alpha_24_id=2-A.png', '/incidents/alpha_24_id=2-B.png', '/incidents/alpha_24_id=2-C.png'],
-                    ['/incidents/alpha_24_id=3-A.png', '/incidents/alpha_24_id=3-B.png'],
-                    ['/incidents/alpha_24_id=4-A.png', '/incidents/alpha_24_id=4-B.png']
-                ],
-                natural_disaster: [
-                    ['/natural_disaster/delta_24_id=1-A.png', '/natural_disaster/delta_24_id=1-B.png', '/natural_disaster/delta_24_id=1-C.png'],
-                    ['/natural_disaster/delta_24_id=2-A.png', '/natural_disaster/delta_24_id=2-B.png', '/natural_disaster/delta_24_id=2-C.png'],
-                    ['/natural_disaster/delta_24_id=3-A.png', '/natural_disaster/delta_24_id=3-B.png', '/natural_disaster/delta_24_id=3-C.png'],
-                    ['/natural_disaster/delta_24_id=4-A.png', '/natural_disaster/delta_24_id=4-B.png']
-                ],
-                rule_violations: [
-                    ['/rule_violations/epsilon_24_id=1-A.png', '/rule_violations/epsilon_24_id=1-B.png', '/rule_violations/epsilon_24_id=1-C.png'],
-                    ['/rule_violations/epsilon_24_id=2-A.png', '/rule_violations/epsilon_24_id=2-B.png', '/rule_violations/epsilon_24_id=2-C.png'],
-                    ['/rule_violations/epsilon_24_id=3-A.png', '/rule_violations/epsilon_24_id=3-B.png', '/rule_violations/epsilon_24_id=3-C.png'],
-                    ['/rule_violations/epsilon_24_id=4-A.png', '/rule_violations/epsilon_24_id=4-B.png']
-                ]
+                competition: {
+                    title: '경쟁력 저하',
+                    data: [
+                        ['/competition/gamma_24_id=1-A.png', '/competition/gamma_24_id=1-B.png', '/competition/gamma_24_id=1-C.png'],
+                        ['/competition/gamma_24_id=2-A.png', '/competition/gamma_24_id=2-B.png', '/competition/gamma_24_id=2-C.png'],
+                        ['/competition/gamma_24_id=3-A.png', '/competition/gamma_24_id=3-B.png', '/competition/gamma_24_id=3-C.png'],
+                        ['/competition/gamma_24_id=4-A.png', '/competition/gamma_24_id=4-B.png']
+                    ]
+                } ,
+                economic_downturn: {
+                    title: '산업 불황',
+                    data: [
+                        ['/economic_downturn/beta_24_id=1-A.png', '/economic_downturn/beta_24_id=1-B.png', '/economic_downturn/beta_24_id=1-C.png'],
+                        ['/economic_downturn/beta_24_id=2-A.png', '/economic_downturn/beta_24_id=2-B.png', '/economic_downturn/beta_24_id=2-C.png'],
+                        ['/economic_downturn/beta_24_id=3-A.png', '/economic_downturn/beta_24_id=3-B.png', '/economic_downturn/beta_24_id=3-C.png'],
+                        ['/economic_downturn/beta_24_id=4-A.png', '/economic_downturn/beta_24_id=4-B.png']
+                    ]
+                } ,
+                incidents: {
+                    title: '사고 발생',
+                    data: [
+                        ['/incidents/alpha_24_id=1-A.png', '/incidents/alpha_24_id=1-B.png', '/incidents/alpha_24_id=1-C.png'],
+                        ['/incidents/alpha_24_id=2-A.png', '/incidents/alpha_24_id=2-B.png', '/incidents/alpha_24_id=2-C.png'],
+                        ['/incidents/alpha_24_id=3-A.png', '/incidents/alpha_24_id=3-B.png'],
+                        ['/incidents/alpha_24_id=4-A.png', '/incidents/alpha_24_id=4-B.png']
+                    ]
+                },
+                natural_disaster: {
+                    title: '자연 재해',
+                    data: [
+                        ['/natural_disaster/delta_24_id=1-A.png', '/natural_disaster/delta_24_id=1-B.png', '/natural_disaster/delta_24_id=1-C.png'],
+                        ['/natural_disaster/delta_24_id=2-A.png', '/natural_disaster/delta_24_id=2-B.png', '/natural_disaster/delta_24_id=2-C.png'],
+                        ['/natural_disaster/delta_24_id=3-A.png', '/natural_disaster/delta_24_id=3-B.png', '/natural_disaster/delta_24_id=3-C.png'],
+                        ['/natural_disaster/delta_24_id=4-A.png', '/natural_disaster/delta_24_id=4-B.png']
+                    ]
+                },
+                rule_violations: {
+                    title: '규칙 위반',
+                    data: [
+                        ['/rule_violations/epsilon_24_id=1-A.png', '/rule_violations/epsilon_24_id=1-B.png', '/rule_violations/epsilon_24_id=1-C.png'],
+                        ['/rule_violations/epsilon_24_id=2-A.png', '/rule_violations/epsilon_24_id=2-B.png', '/rule_violations/epsilon_24_id=2-C.png'],
+                        ['/rule_violations/epsilon_24_id=3-A.png', '/rule_violations/epsilon_24_id=3-B.png', '/rule_violations/epsilon_24_id=3-C.png'],
+                        ['/rule_violations/epsilon_24_id=4-A.png', '/rule_violations/epsilon_24_id=4-B.png']
+                    ]
+                }
             }
         }"
         class="md:p-8 p-0 max-w-5xl mx-auto flex items-center justify-center h-screen"
@@ -60,6 +75,25 @@
             <div class="mb-4">
                 <h2 class="text-xl font-semibold mb-2">Step <span x-text="currentStep"></span> of <span x-text="steps.length"></span></h2>
                 <p class="text-gray-700" x-text="steps[currentStep - 1].instruction"></p>
+            </div>
+
+            <div x-show="currentStep === 3">
+                <template x-for="(condition, key) in images" :key="key">
+                    <div x-show="key === 'competition'">
+                        <h3 class="text-lg font-medium mb-2" x-text="condition.title"></h3>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <template x-for="(imageSet, index) in condition.data" :key="index">
+                                <div x-show="key === 'competition'" class="mb-4">
+                                    <img 
+                                        :src="'/public' + imageSet[Math.floor(Math.random() * imageSet.length)]"
+                                        class="w-full h-auto rounded shadow-md"
+                                        :alt="`${key} image ${index + 1}`"
+                                    />
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
             </div>
             
             <div class="flex justify-between">
