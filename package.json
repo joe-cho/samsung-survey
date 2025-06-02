@@ -1,0 +1,21 @@
+{
+  "name": "samsung-survey",
+  "version": "1.0.0",
+  "description": "Alpine.js + Tailwind CSS + TypeScript Boilerplate",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "alpinejs": "^3.13.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4"
+  }
+} 
