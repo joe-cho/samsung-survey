@@ -159,20 +159,22 @@
             </div>
             
             <div class="flex justify-between mt-4">
-                <button
-                    x-on:click="
-                        if (currentStep === 3 && currentSet === 'B') {
-                            currentSet = 'A';
-                        } else {
-                            currentStep > 1 && currentStep--;
-                        }
-                    "
-                    x-bind:disabled="currentStep === 1"
-                    x-bind:class="currentStep === 1 ? 'opacity-50 cursor-not-allowed' : ''"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2"
-                >
-                    Previous
-                </button>
+                <div>
+                    <button
+                        x-on:click="
+                            if (currentStep === 3 && currentSet === 'B') {
+                                currentSet = 'A';
+                            } else {
+                                currentStep > 1 && currentStep--;
+                            }
+                        "
+                        x-show="currentStep > 1"
+                        x-bind:class="currentStep === 1 ? 'opacity-50 cursor-not-allowed' : ''"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2"
+                    >
+                        Previous
+                    </button>
+                </div>
                 
                 <button
                     x-on:click="
@@ -184,7 +186,7 @@
                             currentStep < steps.length && currentStep++;
                         }
                     "
-                    x-bind:disabled="currentStep === steps.length - 1"
+                    x-show="currentStep < steps.length - 1"
                     x-bind:class="currentStep === steps.length - 1 ? 'opacity-50 cursor-not-allowed' : ''"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2"
                 >
