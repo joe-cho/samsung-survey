@@ -1,8 +1,11 @@
+import { createRoot } from 'react-dom/client';
+import type { JSX } from 'react';
+
 type Props = Record<string, any>;
 type Children = string | Component | (string | Component)[];
-type Component = (props?: Props, children?: Children) => string;
+type Component = (props?: Props, children?: Children) => string | JSX.Element;
 
-const createElement = (tag: string | Component, props?: Props, children?: Children): string => {
+const createElement = (tag: string | Component, props?: Props, children?: Children): string | JSX.Element => {
   if (typeof tag === 'function') {
     return tag(props, children);
   }
@@ -40,7 +43,14 @@ export const mount = (selector: string, component: Component): void => {
     console.error(`Element with selector "${selector}" not found`);
     return;
   }
-  element.innerHTML = component();
+  
+  const result = component();
+  if (typeof result === 'string') {
+    element.innerHTML = result;
+  } else {
+    const root = createRoot(element);
+    root.render(result);
+  }
 };
 
 export { createElement as h, type Component, type Props, type Children }; 

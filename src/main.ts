@@ -8,4 +8,4 @@ window.Alpine = Alpine
 Alpine.start()
 
 // Mount the Counter component
-mount('#app', Counter) 
+mount('#app', Counter)
