@@ -145,7 +145,7 @@
                                                 Image <span x-text="index + 1"></span> (Set <span x-text="currentSet"></span>)
                                             </div>
                                             <img 
-                                                :src="'/public/samsung-survey' + getRandomImage(imageSet, key, index, currentSet === 'B')"
+                                                :src="'/public' + getRandomImage(imageSet, key, index, currentSet === 'B')"
                                                 class="w-full h-auto rounded shadow-md"
                                                 :alt="`${key} image ${index + 1} set ${currentSet}`"
                                             />
