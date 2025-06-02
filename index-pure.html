@@ -351,7 +351,6 @@
                             }
                         "
                         x-show="currentStep > 1"
-                        x-bind:class="currentStep === 1 ? 'opacity-50 cursor-not-allowed' : ''"
                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2"
                     >
                         Previous
@@ -379,7 +378,6 @@
                         }
                     "
                     x-show="currentStep < steps.length"
-                    x-bind:class="currentStep === steps.length - 1 ? 'opacity-50 cursor-not-allowed' : ''"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2"
                 >
                     Next
