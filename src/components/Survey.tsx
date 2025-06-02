@@ -4,9 +4,9 @@ const Survey = () => {
   return (
     <div 
       x-data={`${JSON.stringify(surveyData)}`}
-      className="p-8 max-w-2xl mx-auto"
+      className="p-8 max-w-2xl mx-auto flex items-center justify-center h-screen"
     >
-      <div className="bg-white rounded-lg shadow-lg p-6">
+      <div className="bg-white rounded-lg shadow-lg p-6 w-full h-full">
         <div className="mb-4">
           <h2 className="text-xl font-semibold mb-2">Step <span x-text="currentStep"></span> of <span x-text="steps.length"></span></h2>
           <p className="text-gray-700" x-text="steps[currentStep - 1].instruction"></p>
