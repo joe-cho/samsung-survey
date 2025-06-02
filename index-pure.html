@@ -137,7 +137,7 @@
                     <template x-for="(condition, key) in images" :key="key">
                         <div x-show="key === currentImageKey">
                             <h3 class="text-lg font-medium mb-2" x-text="condition.title"></h3>
-                            <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div class="grid grid-cols-4 gap-4 mb-4">
                                 <template x-for="(imageSet, index) in condition.data" :key="index">
                                     <div class="mb-4">
                                         <div class="relative">
