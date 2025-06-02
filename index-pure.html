@@ -152,11 +152,26 @@
                                     </div>
                                 </template>
                             </div>
-                            <div x-show="currentSet === 'B' && currentImageKey === imageKeys[imageKeys.length - 1]" class="mt-4 p-4 bg-gray-50 rounded">
-                                <p class="text-gray-700">다음 설문에 답해주세요.</p>
-                            </div>
                         </div>
                     </template>
+                </div>
+
+                <div x-show="currentStep === 4">
+                    <h3 class="text-lg font-medium mb-4">설문</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="mb-2">1. 위 그림에서 회사가 전달하고자 하는 메시지는 무엇인가요?</p>
+                            <textarea class="w-full p-2 border rounded" rows="3"></textarea>
+                        </div>
+                        <div>
+                            <p class="mb-2">2. 이 그림이 직원들에게 미치는 영향은 무엇이라고 생각하시나요?</p>
+                            <textarea class="w-full p-2 border rounded" rows="3"></textarea>
+                        </div>
+                        <div>
+                            <p class="mb-2">3. 이 그림의 효과적인 점과 개선이 필요한 점은 무엇인가요?</p>
+                            <textarea class="w-full p-2 border rounded" rows="3"></textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -164,7 +179,10 @@
                 <div>
                     <button
                         x-on:click="
-                            if (currentStep === 3) {
+                            if (currentStep === 4) {
+                                currentStep = 3;
+                                currentSet = 'B';
+                            } else if (currentStep === 3) {
                                 if (currentSet === 'B') {
                                     currentSet = 'A';
                                 } else if (currentSet === 'A') {
@@ -185,14 +203,22 @@
                 <button
                     x-on:click="
                         if (currentStep === 3) {
+                            if (currentSet === 'B') {
+                                currentStep = 4;
+                            } else {
+                                currentSet = 'B';
+                            }
+                        } else if (currentStep === 4) {
                             if (nextImageKey()) {
-                                currentStep++;
+                                currentStep = 5;
+                            } else {
+                                currentStep = 3;
                             }
                         } else {
                             currentStep < steps.length && currentStep++;
                         }
                     "
-                    x-show="currentStep < steps.length - 1"
+                    x-show="currentStep < steps.length"
                     x-bind:class="currentStep === steps.length - 1 ? 'opacity-50 cursor-not-allowed' : ''"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2"
                 >
